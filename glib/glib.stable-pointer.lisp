@@ -33,7 +33,7 @@
 ;; objects to foreign code. thing is any object. The return value is an integer.
 
 (let ((stable-pointers (make-array 0 :adjustable t :fill-pointer t))
-      (sp-mutex (bt:make-lock "sp-mutex")))
+      (sp-mutex (bt:make-lock "stable-pointers lock")))
 
   (defun allocate-stable-pointer (thing)
     (flet ((find-fresh-id ()
